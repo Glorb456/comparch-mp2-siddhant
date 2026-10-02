@@ -42,6 +42,20 @@ module top #(
         .pwm_out_B (pwm_out_B)
     );
 
+    pwm # (
+        .PWM_INTERVAL (PWM_INTERVAL)
+    ) u_pwm (
+        .clk (clk),
+        .pwm_value_R (pwm_value_R),
+        .pwm_out_R (pwm_out_R),
+
+        .pwm_value_G (pwm_value_G),
+        .pwm_out_G (pwm_out_G),
+
+        .pwm_value_B (pwm_value_B),
+        .pwm_out_B (pwm_out_B),
+    );
+
     assign RGB_R = ~pwm_out_R;
     assign RGB_G = ~pwm_out_G;
     assign RGB_B = ~pwm_out_B;
